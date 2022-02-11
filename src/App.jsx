@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import validator from "validator";
 import axios from "axios";
 import Error from "./components/Error";
+
 
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [error, setError] = useState(false);
-	const [errorEmail, setErrorEmail] = useState(false)
+	const [errorEmail, setErrorEmail] = useState(false);
   
 	//Validacion de Login
 	const validarLogin = (e) => {
@@ -30,16 +31,25 @@ function App() {
 			password: password
 			})
 			.then((response) => {
-			console.log(response.data.token)
+				console.log(response.data.token)
+				setTimeout(() => {
+					swal({
+						title: 'Sesion Iniciada',
+						icon: 'success'
+					});
+				}, 1000);
+				
 			})
 			.catch((error) => {
-			console.log(error)
+				swal({
+					title: 'Datos no encontrados',
+					icon: 'error'
+				})
 			})
+
 
 		setError(false);
 		setErrorEmail(false);
-
-
 	}
 
 
@@ -63,12 +73,12 @@ function App() {
 									<p className="text-white-50 mb-5">Por favor, ingresa tu correo y contraseña</p>
 									<div className="form-outline form-white mb-4">
 										<input
-											type="email"
+											type="text"
 											className="form-control form-control-lg"
 											onChange={(e) => setEmail(e.target.value)}
 										/>
 										<label className="form-label mt-2">Correo</label>
-									</div>
+									  </div>
 									<div className="form-outline form-white mb-4">
 										<input
 											type="password"
