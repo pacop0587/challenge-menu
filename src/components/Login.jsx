@@ -45,7 +45,7 @@ const Login = () => {
             navigate('/home');
         } catch (error) {
             await swal({
-                title: 'Datos no encontrados',
+                title: 'Correo y/o contraseña incorrecta',
                 icon: 'error'
             });
         }
