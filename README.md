@@ -1,6 +1,6 @@
 # challenge-menu Alkemy
 <p> Este proyecto fue realizado como prueba de Alkemy, el proyecto esta realizado en ReactJS con Vite </p>
-##Descarga e instalacion
+## Descarga e instalacion
 
 <ul>
   <li>git clone https://github.com/pacop0587/challenge-menu </li>
