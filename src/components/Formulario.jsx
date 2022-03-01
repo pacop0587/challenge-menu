@@ -1,7 +1,7 @@
 import React from 'react'
 import { Formik } from 'formik'
 
-const Formulario = () => {
+const Formulario = ({ queryMenu}) => {
 
 
   return (
@@ -21,11 +21,11 @@ const Formulario = () => {
 			onSubmit={(valores, {resetForm}) => {
 				const valoresLower = valores.plato.toLowerCase();
 				resetForm();
-				console.log(valoresLower);
+				queryMenu(valoresLower)
 			}}
 		  
 		  >
-			{({values, errors, handleSubmit, handleChange, handleBlur}) => (
+			{({values, errors, handleSubmit, handleChange}) => (
 				<form className='card bg-dark text-white' onSubmit={handleSubmit}>
 					<div className="card-body">
 						<div className="mb-3">
@@ -36,14 +36,12 @@ const Formulario = () => {
 								className="form-control"
 								value={values.plato}
 								onChange={handleChange}
-								// onBlur = {handleBlur}
 							  />
 							{errors.plato && <div className='text-danger'>{errors.plato}</div>}
 						</div>
 						<button type="submit" className="btn btn-outline-light ">Buscar</button>
 					</div>
 				</form>
-				  
 		)}
 
       </Formik>
